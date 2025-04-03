@@ -42,7 +42,7 @@
 * [Coding](https://code.visualstudio.com/)
 * [Git management](https://desktop.github.com/)
 
-## 🐳 Using docker-compose to run Shorten That
+## 🐳 Using docker-compose to run Shorten This
 1) Install Docker and docker-compose
 2) Create file called docker-compose.yml and paste this inside:
 ```
@@ -64,7 +64,7 @@ docker-compose up -d
 ```
 6) It works!
 
-## 🐍 Using Python to run Shorten That
+## 🐍 Using Python to run Shorten This
 1) Install Python
 2) Clone this repository and enter its directory:
 ```
