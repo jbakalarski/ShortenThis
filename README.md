@@ -30,8 +30,8 @@
 **❓ What is this?** Web app for shortening links. Backend is written in Flask (Python framework).
 
 **❓ How to use it?**
-* [**Using docker-compose**](#using-docker-compose-to-run-shorten-that)
-* [**Using Python**](#using-python-to-run-shorten-that)
+* [**Using docker-compose**](#using-docker-compose-to-run-shorten-this)
+* [**Using Python**](#using-python-to-run-shorten-this)
 
 **❓ What did I use?**
 * [Python](https://www.python.org/)
@@ -83,9 +83,9 @@ python app.py
 
 ## 🚀 Features
 * Setup screen on first run
-* Authentication by password (not available in version hosted by me)
-* Settings screen (not available in version hosted by me)
-* Users screen (not available in version hosted by me)
+* Authentication by password
+* Settings screen
+* Users screen
 * Shortening URL with custom short URL (if not provided, short URL will be set to random string of length provided in setup)
 * Stats of shortened URL
 * Option to delete link in control panel
