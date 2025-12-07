@@ -98,14 +98,14 @@ def shortening_url(url, short_url):
     shortened_url = f"{app_url}/{short_url}"
     now = datetime.now()
     formatted_date = now.strftime("%b %d, %Y %H:%M")
-    db.execute("INSERT INTO urls (short_url, url, date, ip, clicks) VALUES (?, ?, ?, ?, ?)", (short_url, url, formatted_date, request.remote_addr, 0))
+    db.execute("INSERT INTO urls (short_url, url, date, ip, clicks) VALUES (?, ?, ?, ?, ?)", (short_url, url, formatted_date, request.headers.get('CF-Connecting-IP') or request.headers.get('X-Forwarded-For') or request.remote_addr, 0))
     conn.commit()
     return shortened_url
 
 def add_stats(short_url):
     now = datetime.now()
     formatted_date = now.strftime("%b %d, %Y %H:%M")
-    db.execute("INSERT INTO stats (short_url, date, ip, user_agent, referer) VALUES (?, ?, ?, ?, ?)", (short_url, formatted_date, request.remote_addr, request.headers.get('User-Agent'), request.headers.get('Referer')))
+    db.execute("INSERT INTO stats (short_url, date, ip, user_agent, referer) VALUES (?, ?, ?, ?, ?)", (short_url, formatted_date, request.headers.get('CF-Connecting-IP') or request.headers.get('X-Forwarded-For') or request.remote_addr, request.headers.get('User-Agent'), request.headers.get('Referer')))
     conn.commit()
     db.execute("UPDATE urls SET clicks = clicks + 1 WHERE short_url = ?", (short_url,))
     conn.commit()
